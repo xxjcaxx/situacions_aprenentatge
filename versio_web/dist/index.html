@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>situacions-aprenentatge</title>
+  <script type="module" crossorigin src="/assets/index-BmwN-4ZZ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DCNi4_oY.css">
+</head>
+
+<body>
+  <div id="header">
+    <img src="logo.png" alt="" srcset="">
+    <h1>CEIP Vicente Rius Guillemes</h1>
+    <img src="generalitat.png" alt="" srcset="">
+  </div>
+  <h2 class="center">PROGRAMACIÓ D’AULA: SITUACIONS D’APRENENTATGE EDUCACIÓ PRIMÀRIA</h2>
+
+  <div class="json-panel no-imprimir" aria-hidden="true">
+    <div class="json-handle" title="Mostrar panel JSON">JSON</div>
+    <div class="json-content">
+      <div class="json-controls">
+        <button id="exportar">Exportar</button>
+        <button id="importar">Importar</button>
+        <button id="limpiar">Limpiar</button>
+        <button id="imprimir">Imprimir</button>
+      </div>
+      <textarea name="json" id="json" placeholder="JSON export/import"></textarea>
+    </div>
+  </div>
+
+  <div class="document-container">
+
+
+    <!-- TAULA 1 and TAULA 2 replaced by CSS Grid layout -->
+    <form id="sa-form" method="post">
+      <div class="sa-grid pagina">
+        <!-- Row 1: Course, area, level, sessions -->
+        <div class="grid-item  col-span-1 grid-row-bold ">CURS ACADÈMIC</div>
+        <div class="grid-item col-span-2"><textarea type="text" name="curs" id="curs"></textarea></div>
+        <div class="grid-item  col-span-1 grid-row-bold ">ÀREA/MATÈRIA</div>
+        <div class="grid-item col-span-2">
+          <textarea type="text" name="area" id="area" style="height: 38px; min-height: 28px;"></textarea>
+        </div>
+        <div class="grid-item  col-span-1 grid-row-bold ">NIVELL I GRUP</div>
+        <div class="grid-item col-span-1"><textarea type="text" name="nivell" id="nivell"></textarea></div>
+        <div class="grid-item  col-span-1 grid-row-bold ">NÚM. DE SESSIONS</div>
+        <div class="grid-item col-span-1"><textarea type="number" name="n_sessions" id="n_sessions"></textarea></div>
+
+        <!-- Temporalització header -->
+        <div class="grid-item center bg-dark col-span-10 grid-row-title">TEMPORALITZACIÓ</div>
+
+        <!-- Month names (setembre -> juny) -->
+        <div class="grid-item center col-span-1">setembre</div>
+        <div class="grid-item center col-span-1">octubre</div>
+        <div class="grid-item center col-span-1">novembre</div>
+        <div class="grid-item center col-span-1">desembre</div>
+        <div class="grid-item center col-span-1">gener</div>
+        <div class="grid-item center col-span-1">febrer</div>
+        <div class="grid-item center col-span-1">març</div>
+        <div class="grid-item center col-span-1">abril</div>
+        <div class="grid-item center col-span-1">maig</div>
+        <div class="grid-item center col-span-1">juny</div>
+
+        <!-- Month boxes row (data-name from setembre-1..5 to juny-1..5) -->
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="setembre-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="setembre-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="setembre-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="setembre-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="setembre-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="octubre-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="octubre-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="octubre-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="octubre-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="octubre-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="novembre-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="novembre-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="novembre-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="novembre-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="novembre-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="desembre-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="desembre-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="desembre-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="desembre-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="desembre-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="gener-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="gener-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="gener-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="gener-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="gener-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="febrer-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="febrer-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="febrer-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="febrer-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="febrer-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="marc-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="marc-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="marc-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="marc-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="marc-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="abril-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="abril-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="abril-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="abril-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="abril-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="maig-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="maig-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="maig-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="maig-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="maig-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        <div class="grid-item month-row col-span-1">
+          <div class="month-checkboxes">
+            <div class="month-box" data-name="juny-1" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="juny-2" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="juny-3" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="juny-4" tabindex="0" role="button" aria-pressed="false"></div>
+            <div class="month-box" data-name="juny-5" tabindex="0" role="button" aria-pressed="false"></div>
+          </div>
+        </div>
+        </div>
+        <div class="sa-grid pagina">
+        <!-- Large sections: title, context, description, competences -->
+        <div class="grid-item col-span-2 grid-row-title celda-rowspan">SITUACIÓ D’APRENENTATGE NÚM.
+          <textarea type="text" name="num_situacio" id="num_situacio"></textarea>
+        </div>
+        <div class="grid-item col-span-4 grid-row-bold ">TÍTOL
+          <textarea type="text" name="titol" id="titol"></textarea>
+        </div>
+        <div class="grid-item col-span-4 grid-row-bold ">CONTEXT
+          <textarea name="context" id="context"
+            placeholder="Hi ha que identificar fortaleses de l’alumnat i barreres del context en esta SA"></textarea>
+        </div>
+
+        <div class="grid-item col-span-4">
+          <strong>DESCRIPCIÓ I JUSTIFICACIÓ</strong>
+          <textarea name="descripcio" id="descripcio"
+            placeholder="Finalitat de la situació d’aprenenetatge Repercusió (escolar, familiar, social, personal, professional) "></textarea>
+        </div>
+        <div class="grid-item col-span-4 grid-row-bold ">RELACIÓ AMB ELS REPTES DEL S. XXI I AMB ELS ODS
+          <textarea name="ods" id="ods"></textarea>
+        </div>
+</div>
+        <div class="sa-grid pagina">
+
+        <div class="grid-item col-span-2 center celda-rowspan bg-dark grid-row-title">COMPETÈNCIES ESPECÍFIQUES I
+          CRITERIS D’AVALUACIÓ VINCULATS</div>
+        <div class="grid-item col-span-4 center celda-rowspan grid-row-bold ">COMPETÈNCIES ESPECÍFIQUES
+          <textarea name="competencies" id="competencies"></textarea>
+        </div>
+        <div class="grid-item col-span-4 grid-row-bold ">CRITERIS D’AVALUACIÓ
+          <textarea name="criteris" id="criteris"></textarea>
+        </div>
+        <div class="grid-item col-span-4 grid-row-bold ">CRITERIS D’AVALUACIÓ VINCULATS
+          <textarea name="criteris_vinculats" id="criteris_vinculats"></textarea>
+        </div>
+</div>
+        <div class="sa-grid pagina">
+        <div class="grid-item col-span-2  center  bg-dark grid-row-title ">DESCRIPTORS OPERATIUS</div>
+        <div class="grid-item col-span-8 descriptors descriptors-grid">
+          <div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccl1" name="CCL1">
+              <label for="ccl1">CCL1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccl2" name="CCL2">
+              <label for="ccl2">CCL2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccl3" name="CCL3">
+              <label for="ccl3">CCL3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccl4" name="CCL4">
+              <label for="ccl4">CCL4</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccl5" name="CCL5">
+              <label for="ccl5">CCL5</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cp1" name="CP1">
+              <label for="cp1">CP1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cp2" name="CP2">
+              <label for="cp2">CP2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cp3" name="CP3">
+              <label for="cp3">CP3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="stem1" name="STEM1">
+              <label for="stem1">STEM1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="stem2" name="STEM2">
+              <label for="stem2">STEM2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="stem3" name="STEM3">
+              <label for="stem3">STEM3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="stem4" name="STEM4">
+              <label for="stem4">STEM4</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="stem5" name="STEM5">
+              <label for="stem5">STEM5</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cd1" name="CD1">
+              <label for="cd1">CD1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cd2" name="CD2">
+              <label for="cd2">CD2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cd3" name="CD3">
+              <label for="cd3">CD3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cd4" name="CD4">
+              <label for="cd4">CD4</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cd5" name="CD5">
+              <label for="cd5">CD5</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cpsaa1" name="CPSAA1">
+              <label for="cpsaa1">CPSAA1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cpsaa2" name="CPSAA2">
+              <label for="cpsaa2">CPSAA2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cpsaa3" name="CPSAA3">
+              <label for="cpsaa3">CPSAA3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cpsaa4" name="CPSAA4">
+              <label for="cpsaa4">CPSAA4</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cpsaa5" name="CPSAA5">
+              <label for="cpsaa5">CPSAA5</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cc1" name="CC1">
+              <label for="cc1">CC1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cc2" name="CC2">
+              <label for="cc2">CC2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cc3" name="CC3">
+              <label for="cc3">CC3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cc4" name="CC4">
+              <label for="cc4">CC4</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ce1" name="CE1">
+              <label for="ce1">CE1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ce2" name="CE2">
+              <label for="ce2">CE2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ce3" name="CE3">
+              <label for="ce3">CE3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccec1" name="CCEC1">
+              <label for="ccec1">CCEC1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccec2" name="CCEC2">
+              <label for="ccec2">CCEC2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccec3" name="CCEC3">
+              <label for="ccec3">CCEC3</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ccec4" name="CCEC4">
+              <label for="ccec4">CCEC4</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-item center bg-dark col-span-2 grid-row-title">SABERS BÀSICS</div>
+        <div class="grid-item col-span-8 ">
+          <textarea name="sabers" id="sabers"></textarea>
+        </div>
+
+        </div>
+        <div class="sa-grid pagina">
+
+        <!-- TAULA 2 content transformed to grid -->
+        <div class="grid-item col-span-10 center bg-dark grid-row-title">ORGANITZACIÓ</div>
+
+        <div class="grid-item col-span-5 center">SEQÜENCIACIÓ D'ACTIVITATS/DISTRIBUCIÓ DEL TEMPS
+          <textarea name="sequencia" id="sequencia"
+            placeholder="(indicar el número de sessions de cada activitat)"></textarea>
+        </div>
+
+        <div class="grid-item col-span-5 center bg-dark">AVALUACIÓ
+          <textarea name="avaluacio" id="avaluacio" placeholder="Criteris d'avaluació
+Mitjans (documentació pedagògica en infantil)\n
+Instruments per a la valoració del progrés de l'alumnat\n
+Tipus d'avaluació (segons agent, moment i propòsit)"></textarea>
+
+        </div>
+
+        </div>
+        <div class="sa-grid pagina">
+
+        <div class="grid-item col-span-4 center bg-dark">MESURES DE RESPOSTA PER A LA INCLUSIÓ: NIVELL II
+          <textarea name="mesuresII" id="mesuresII"
+            placeholder="Metodologies\nOrganització dels espais\nRecursos materials addicionals especialitzats\nRecursos organitzatius"></textarea>
+
+
+        </div>
+        <div class="grid-item col-span-3 center bg-dark">MESURES DE RESPOSTA PER A LA INCLUSIÓ: NIVELL III
+          <textarea name="mesuresIII" id="mesuresIII"
+            placeholder="Recursos materials i personals addicionals ordinaris"></textarea>
+        </div>
+        <div class="grid-item col-span-3 center bg-dark">MESURES DE RESPOSTA PER A LA INCLUSIÓ: NIVELL IV
+          <textarea name="mesuresIV" id="mesuresIV"
+            placeholder="Recursos materials i personals addicionals especialitzats"></textarea>
+
+        </div>
+</div>
+        <div class="sa-grid pagina">
+        <div class="grid-item col-span-10 center bg-dark grid-row-title">Aprenentatge accessible (hi ha que marcar els elements
+          utilitzats que faciliten l'accessibilitat de l'aprenentatge DUA)</div>
+
+        <div class="grid-item col-span-4 ">Motivació
+          <div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="mot_perspectiva" name="mot_perspectiva">
+              <label for="mot_perspectiva">Considera la perspectiva cultural, de gènere i socioeconòmica</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="mot_perspectiva" name="mot_perspectiva">
+              <label for="mot_perspectiva">Considera la perspectiva cultural, de gènere i socioeconòmica</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="mot_connexio" name="mot_connexio">
+              <label for="mot_connexio">Considera la connexió amb els desafiaments, ODS i afavoreix el rol actiu de
+                l'alumnat</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="mot_implicacio" name="mot_implicacio">
+              <label for="mot_implicacio">Aconsegueix la màxima implicació i participació de tot l'alumnat</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="mot_autoregulacio" name="mot_autoregulacio">
+              <label for="mot_autoregulacio">Promou l'autorregulació i l'autoavaluació, negociant amb l'alumnat la
+                finalitat de la SA i compartint els instruments d'avaluació des del inici</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="mot_feedback" name="mot_feedback">
+              <label for="mot_feedback">Facilita feedback a temps per què l'alumnat experimente l'èxit, tractant els
+                errors abans de valorar el progrés</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-item col-span-3 ">Representació
+          <div class="">
+
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="rep_acces" name="rep_acces">
+              <label for="rep_acces">Accesibilitat: física, sensorial i cognitiva</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="rep_formats" name="rep_formats">
+              <label for="rep_formats">Presenta la informació a l'alumnat utilitzant diferents formats</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="rep_reflexio" name="rep_reflexio">
+              <label for="rep_reflexio">Afavoreix la reflexió i el processament de la informació en diferents
+                nivells</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="rep_models" name="rep_models">
+              <label for="rep_models">Proporciona múltiples models i pautes de tècniques d'autoavaluació</label>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item col-span-3 ">Acció i expressió
+          <div class="">
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="acc_expressio" name="acc_expressio">
+              <label for="acc_expressio">Ofereix a l'alumnat diferents maneres d'expressió del coneixement</label>
+            </div>
+            <div class="checkbox-item-text">
+              <input type="checkbox" id="acc_seguiment" name="acc_seguiment">
+              <label for="acc_seguiment">Hi ha un seguiment continu proporcionant feedback</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+</body>
+
+</html>
