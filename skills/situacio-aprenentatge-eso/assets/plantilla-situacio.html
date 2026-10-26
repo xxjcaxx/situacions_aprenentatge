@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plantilla — Situació d'aprenentatge ESO</title>
+<style>
+  @page { size: A4 landscape; margin: 22mm 14.5mm 13mm 13mm; }
+  * { box-sizing: border-box; }
+  html { font-family: Arial, "Liberation Sans", Helvetica, sans-serif; font-size: 10pt; color: #000; }
+  body { margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .doc-title {
+    margin: 12mm 0 10.8mm 18.65%;
+    width: 81.35%;
+    text-align: center;
+    font-size: 12.5pt;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #774DB2;
+  }
+  table.layout { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  table.layout td {
+    border-left: 0.5pt solid #774DB2;
+    border-right: 0.5pt solid #774DB2;
+    border-bottom: 0.5pt solid #774DB2;
+    padding: 1.4mm 2mm 1.4mm 1mm;
+    vertical-align: top;
+  }
+  table.layout tr:first-child td { border-top: 0.5pt solid #774DB2; }
+  table.layout + table.layout tr:first-child td { border-top: none; }
+  td.label {
+    background: #774DB2;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11.5pt;
+    line-height: 1.15;
+    vertical-align: top;
+    padding-left: 2mm;
+  }
+  td.meta { background: #F2F2F2; vertical-align: middle; }
+  .meta-label { color: #774DB2; font-size: 10pt; }
+  .meta-value { font-size: 12pt; }
+  .section-head { font-style: italic; margin: 0 0 1mm; }
+  p { margin: 0 0 0.5mm; line-height: 1.2; }
+  p.space { margin-bottom: 2.2mm; }
+  ul, ol { margin: 0 0 1.2mm 4mm; padding: 0; }
+  li { margin: 0 0 0.3mm; line-height: 1.2; }
+  .sa-title { font-weight: 700; font-size: 11.5pt; text-transform: uppercase; }
+  .context-line { line-height: 1.7; }
+  .context-opt { white-space: nowrap; margin-right: 2mm; }
+  .box {
+    display: inline-block;
+    width: 2.8mm;
+    height: 2.8mm;
+    border: 0.5pt solid #000;
+    text-align: center;
+    line-height: 2.6mm;
+    font-size: 8pt;
+    vertical-align: middle;
+    margin-right: 0.8mm;
+  }
+  .box.checked { font-weight: 700; }
+  table.no-h td { border-bottom: none; }
+  table.no-h tr:last-child td { border-bottom: 0.5pt solid #774DB2; }
+  table.no-h tr { break-inside: avoid; }
+  table.new-page { break-before: page; }
+  .note { color: #774DB2; font-size: 8pt; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="doc-title">PROGRAMACIÓ D'AULA: SITUACIONS D'APRENENTATGE. EDUCACIÓ SECUNDÀRIA OBLIGATÒRIA</div>
+
+<!-- 1. CAPÇALERA DE DADES: substitueix les dades entre claus dobles. -->
+<table class="layout">
+  <colgroup>
+    <col style="width:36.0%"><col style="width:22.4%"><col style="width:24.2%"><col style="width:17.4%">
+  </colgroup>
+  <tr>
+    <td class="meta"><span class="meta-label">Curs acadèmic:</span> <span class="meta-value">{{CURS}}</span></td>
+    <td class="meta"><span class="meta-label">Matèria:</span> <span class="meta-value">{{MATERIA}}</span></td>
+    <td class="meta"><span class="meta-label">Nivell:</span> <span class="meta-value">{{NIVELL}}</span></td>
+    <td class="meta"><span class="meta-label">Grup:</span> <span class="meta-value">{{GRUP}}</span></td>
+  </tr>
+</table>
+
+<!-- 2. IDENTIFICACIÓ + 3. DESCRIPCIÓ I REPTES -->
+<table class="layout">
+  <colgroup>
+    <col style="width:18.65%"><col style="width:39.6%"><col style="width:41.75%">
+  </colgroup>
+  <tr>
+    <td class="label" style="border-bottom:none;">Situació d’aprenentatge<br>núm. {{NUMERO}}</td>
+    <td>
+      <p class="section-head">Títol:</p>
+      <p class="sa-title">{{TITOL}}</p>
+    </td>
+    <td>
+      <!-- Marca amb una X la casella o caselles que corresponguen. -->
+      <div class="context-line"><strong>Context:</strong>
+        <span class="context-opt"><span class="box"></span>personal</span>
+        <span class="context-opt"><span class="box"></span>educatiu</span>
+        <span class="context-opt"><span class="box"></span>social</span>
+        <span class="context-opt"><span class="box"></span>professional</span>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="label"></td>
+    <td>
+      <p class="section-head">Descripció / Justificació:</p>
+      <p>{{DESCRIPCIO}}</p>
+      <p><strong>Producte final:</strong></p>
+      <ul>
+        <li>{{PRODUCTE_1}}</li>
+        <li>{{PRODUCTE_2}}</li>
+        <li>{{PRODUCTE_3}}</li>
+      </ul>
+    </td>
+    <td>
+      <p class="section-head">Relació amb els reptes del s.XXI i els ODS:</p>
+      <p>{{REPTES_INTRO}}</p>
+      <ol>
+        <li>{{REPTE_1}}</li>
+        <li>{{REPTE_2}}</li>
+        <li>{{REPTE_3}}</li>
+      </ol>
+    </td>
+  </tr>
+</table>
+
+<!-- 4. COMPETÈNCIES I CRITERIS.
+     Duplica o elimina files <tr> segons les competències. Deixa la primera
+     columna buida a les files següents: la banda morada ha de continuar. -->
+<table class="layout no-h">
+  <colgroup>
+    <col style="width:18.65%"><col style="width:39.6%"><col style="width:41.75%">
+  </colgroup>
+  <tr>
+    <td class="label">Competències específiques i criteris d’avaluació vinculats</td>
+    <td>
+      <p class="section-head">Competències específiques</p>
+      <p>Competència específica: {{CODI_COMP_1}} {{TEXT_COMP_1}}</p>
+    </td>
+    <td>
+      <p class="section-head">Criteris d’avaluació vinculats</p>
+      <p>{{CODI_CRIT_1}} {{TEXT_CRIT_1}}</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="label"></td>
+    <td><p>Competència específica: {{CODI_COMP_2}} {{TEXT_COMP_2}}</p></td>
+    <td><p>{{CODI_CRIT_2}} {{TEXT_CRIT_2}}</p></td>
+  </tr>
+  <tr>
+    <td class="label"></td>
+    <td><p>Competència específica: {{CODI_COMP_3}} {{TEXT_COMP_3}}</p></td>
+    <td><p>{{CODI_CRIT_3}} {{TEXT_CRIT_3}}</p></td>
+  </tr>
+  <tr>
+    <td class="label"></td>
+    <td><p>Competència específica: {{CODI_COMP_4}} {{TEXT_COMP_4}}</p></td>
+    <td><p>{{CODI_CRIT_4}} {{TEXT_CRIT_4}}</p></td>
+  </tr>
+</table>
+
+<!-- 5. SABERS BÀSICS: una columna per matèria o mòdul. -->
+<table class="layout no-h new-page">
+  <colgroup>
+    <col style="width:18.65%"><col style="width:39.6%"><col style="width:41.75%">
+  </colgroup>
+  <tr>
+    <td class="label">Sabers bàsics</td>
+    <td>
+      <p class="section-head">{{MATERIA_1}}</p>
+      <p>{{BLOCS_1}}</p>
+    </td>
+    <td>
+      <p class="section-head">{{MATERIA_2}}</p>
+      <p>{{BLOCS_2}}</p>
+    </td>
+  </tr>
+</table>
+
+<!-- 6. ORGANITZACIÓ.
+     Cada fila és una activitat. Les cinc columnes han de ser coherents.
+     La primera columna només porta el text a la primera fila. -->
+<table class="layout no-h">
+  <colgroup>
+    <col style="width:18.65%"><col style="width:36.8%"><col style="width:9.3%"><col style="width:9.3%"><col style="width:13.0%"><col style="width:13.0%">
+  </colgroup>
+  <tr>
+    <td class="label">Organització</td>
+    <td>
+      <p class="section-head">Seqüenciació d’activitats</p>
+      <p>{{SEQ_1}}</p>
+    </td>
+    <td>
+      <p class="section-head">Organització dels espais</p>
+      <p>{{ESP_1}}</p>
+    </td>
+    <td>
+      <p class="section-head">Distribució del temps</p>
+      <p>{{TEMPS_1}}</p>
+    </td>
+    <td>
+      <p class="section-head">Recursos i materials</p>
+      <p>{{RECURSOS_1}}</p>
+    </td>
+    <td>
+      <p class="section-head">Mesures de resposta educativa per a la inclusió</p>
+      <p>{{INCLUSIO_1}}</p>
+    </td>
+  </tr>
+  <tr>
+    <td class="label"></td>
+    <td><p>{{SEQ_2}}</p></td>
+    <td><p>{{ESP_2}}</p></td>
+    <td><p>{{TEMPS_2}}</p></td>
+    <td><p>{{RECURSOS_2}}</p></td>
+    <td><p>{{INCLUSIO_2}}</p></td>
+  </tr>
+  <tr>
+    <td class="label"></td>
+    <td><p>{{SEQ_3}}</p></td>
+    <td><p>{{ESP_3}}</p></td>
+    <td><p>{{TEMPS_3}}</p></td>
+    <td><p>{{RECURSOS_3}}</p></td>
+    <td><p>{{INCLUSIO_3}}</p></td>
+  </tr>
+</table>
+
+<!-- 7. INSTRUMENTS -->
+<table class="layout no-h new-page">
+  <colgroup>
+    <col style="width:18.65%"><col style="width:81.35%">
+  </colgroup>
+  <tr>
+    <td class="label">Instruments de recollida d’informació per a la valoració del progrés de l’alumnat</td>
+    <td>
+      <p>{{INSTRUMENT_1}}</p>
+      <p>{{INSTRUMENT_2}}</p>
+      <p>{{INSTRUMENT_3}}</p>
+      <p>{{INSTRUMENT_4}}</p>
+      <p><strong>Tasques avaluades:</strong> {{TASQUES}}</p>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
