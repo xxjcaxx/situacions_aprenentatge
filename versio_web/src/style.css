@@ -1,0 +1,496 @@
+ /* Colors and borders aligned with the PLANTILLA PDF conversion */
+ :root {
+   --accent: #5e65fc;
+   --heading: #545454;
+   --muted: #7f7f7f;
+   --accent-bg: #cdffd8;
+   --border: #545454;
+ }
+
+ body {
+   font-family: Arial, sans-serif;
+   margin: 20px;
+   color: var(--heading);
+   background-color: #ffffff;
+ }
+
+ .document-container {
+   max-width: 1200px;
+   margin: auto;
+   background: #fff;
+   padding: 30px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+ }
+
+ @media print {
+    .no-imprimir {
+        display: none !important;
+    }
+}
+
+@media print {
+    @page {
+        size: A4 landscape;
+  margin: 8mm;
+    }
+
+    .grid-item textarea,
+    textarea {
+      font-size: 0.85em;
+      line-height: 1.2;
+      overflow: visible !important;
+      resize: none;
+    }
+   
+ .document-container {
+  
+   box-shadow: none;
+ }
+
+}
+
+ h2.center {
+   color: var(--accent);
+   font-weight: bold;
+   margin-bottom: 0.4rem;
+ }
+
+ #header {
+   width: 55%;
+   margin: 0 auto 16px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 12px;
+ }
+
+ #header img {
+   max-height: 70px;
+   width: auto;
+   object-fit: contain;
+ }
+
+ #header h1 {
+   margin: 0;
+   text-align: center;
+   font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+   flex: 1;
+ }
+
+
+
+ .center {
+   text-align: center;
+   color: var(--heading);
+ }
+
+ .bg-dark {
+   background-color: var(--accent-bg);
+   color: var(--heading);
+ }
+
+ ul {
+   margin: 0;
+   padding-left: 20px;
+ }
+
+ .empty-cell {
+   min-width: 50px;
+ }
+
+ .descriptors div {
+   line-height: 1;
+   display: flex;
+   flex-wrap: wrap;
+   /* keep all items on a single line */
+   gap: 8px;
+   align-items: center;
+   overflow-x: auto;
+   /* allow horizontal scroll if they don't fit */
+   padding: 6px 0;
+   box-sizing: border-box;
+ }
+
+ .checkbox-item {
+   display: inline-flex;
+   flex-direction: column;
+   /* text above checkbox */
+   align-items: center;
+   gap: 1px;
+   margin-right: 6px;
+   white-space: normal;
+   font-size: 0.6em;
+   padding: 1px 1px;
+
+   background: #fff;
+   max-width: 64px;
+   flex: 0 0 auto;
+   text-align: center;
+   line-height: 1.1;
+ }
+
+.checkbox-item-text {
+    display: flex;             /* Activa Flexbox para alinear elementos en fila */
+    align-items: flex-start;   /* Alinea el checkbox arriba si el texto ocupa varias líneas */
+    gap: 10px;                 /* Espacio de separación entre el checkbox y el texto */
+    margin-bottom: 10px;       /* Separación vertical entre cada elemento del formulario */
+}
+
+.checkbox-item-text input[type="checkbox"] {
+    margin-top: 3px;           /* Pequeño ajuste fino para centrarlo óptimamente con la primera línea de texto */
+    flex-shrink: 0;            /* Evita que el checkbox se deforme o encoja si el espacio es ajustado */
+    cursor: pointer;
+}
+
+.checkbox-item-text label {
+    cursor: pointer;
+    flex-grow: 1;              /* Hace que el texto ocupe el resto del ancho disponible */
+    word-break: break-word;    /* Asegura que las palabras largas no rompan el diseño */
+    overflow-wrap: break-word;
+}
+
+
+ /* smaller spacer for layout similar to PDF */
+ .spacer {
+   height: 48px;
+ }
+
+ /* muted text used for repetitive month cells */
+ .muted {
+   color: var(--muted);
+ }
+
+ /* compact month checkbox group: fill cell, boxes touching table borders */
+ .grid-item.month-row  {
+   padding: 0;
+ }
+
+ .month-checkboxes {
+   display: flex;
+   gap: 0;
+   /* no gap so boxes touch */
+   width: 100%;
+   margin: 0;
+ }
+
+ .month-box {
+   /* now a clickable div-like element */
+   flex: 1 1 0;
+   height: 28px;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   border-left: 1px solid #ccc;
+   background: #fff;
+   cursor: pointer;
+   display: inline-block;
+ }
+
+ .month-box:first-child {
+   border-left: none;
+ }
+
+ .month-box:last-child {
+   border-right: none;
+ }
+
+ .month-box[aria-pressed="true"] {
+   background: var(--accent-bg);
+  
+ }
+
+
+
+ /* --- CSS Grid layout for the SA form (replaces table layout) --- */
+
+ .sa-grid {
+   display: grid;
+   grid-template-columns: repeat(10, 1fr);
+   gap: 1px;
+   border: 1px solid var(--border);
+   width: 100%;
+   margin-bottom: -1px;
+   box-sizing: border-box;
+   background-color: #ccc;
+ }
+
+ .grid-item {
+
+   padding: 8px;
+   box-sizing: border-box;
+   background: #fff;
+   color: var(--heading);
+   min-height: 1px;
+ }
+
+.grid-item textarea {
+   width: 100%;
+   box-sizing: border-box;
+   min-height: 80px;
+   resize: vertical;
+   overflow: hidden;
+  height: auto;
+
+   /* --- Estilos para un diseño sutil --- */
+   border: none;                                  /* Elimina completamente el borde */
+   outline: none;                                 /* Quita el borde de selección nativo del navegador */
+   background-color: rgba(0, 0, 0, 0.0);         /* Fondo sutil (negro muy transparente) */
+   color: inherit;                                /* Hereda el color de texto de la celda */
+   font-family: inherit;                          /* Hereda la tipografía general */
+   font-size: inherit;
+   padding: 8px;                                  /* Espaciado interno para que el texto no pegue con los bordes */
+   border-radius: 4px;                            /* Bordes ligeramente redondeados */
+   transition: background-color 0.2s ease;        /* Suaviza el cambio al seleccionarlo */
+}
+
+/* Efecto opcional al hacer clic o escribir en él para que sea un poco más visible */
+.grid-item textarea:focus {
+   background-color: rgba(0, 0, 0, 0.06);       
+}
+
+ .col-span-1 {
+   grid-column: span 1;
+ }
+
+ .col-span-1 input[type="text"] {
+   width: 100%;
+   box-sizing: border-box;
+ }
+
+ .col-span-2 {
+   grid-column: span 2;
+ }
+
+ .col-span-4 input[type="text"], .col-span-2 input[type="text"] {
+   width: 100%;
+   box-sizing: border-box;
+ }
+
+ .col-span-3 {
+   grid-column: span 3;
+ }
+
+ .col-span-4 {
+   grid-column: span 4;
+ }
+
+ .col-span-5 {
+   grid-column: span 5;
+ }
+
+ .col-span-6 {
+   grid-column: span 6;
+ }
+
+ .col-span-8 {
+   grid-column: span 8;
+ }
+
+ .col-span-10 {
+   grid-column: 1 / -1;
+ }
+
+ .celda-rowspan {
+   /* Ocupa 2 filas hacia abajo */
+   grid-row: span 2;
+ }
+
+ .grid-row-title {
+   font-weight: bold;
+    background-color: var(--accent-bg);
+ }
+
+ .grid-row-bold {
+   font-weight: bold;
+ }
+
+ /* Ensure month groups fill the grid cell with no padding */
+ .month-row .grid-item {
+   padding: 0;
+ }
+
+ /* Make descriptor area layout consistent in grid */
+ .descriptors-grid {
+   display: block;
+   padding: 6px 0;
+ }
+
+ /* Small responsive tweaks */
+ @media (max-width: 900px) {
+   .sa-grid {
+     grid-template-columns: repeat(5, 1fr);
+   }
+
+   .col-span-10 {
+     grid-column: 1 / -1;
+   }
+
+   .col-span-8 {
+     grid-column: span 5;
+   }
+
+   .col-span-6 {
+     grid-column: span 5;
+   }
+ }
+
+/* JSON export/import panel (hidden until hover) */
+.json-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 340px;
+  max-height: 40px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: max-height 220ms ease, box-shadow 220ms ease;
+  z-index: 1000;
+}
+
+.json-panel .json-handle {
+  position: absolute;
+  left: -56px;
+  top: 0;
+  width: 56px;
+  height: 40px;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 6px 0 0 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.json-panel .json-content {
+  padding: 8px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.json-panel .json-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.json-panel textarea#json {
+  width: 100%;
+  height: 220px;
+  resize: vertical;
+  padding: 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+/* Reveal panel on hover of the handle or the panel itself */
+.json-panel:hover,
+.json-panel:focus-within {
+  max-height: 420px;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.18);
+}
+
+.json-panel:hover .json-content,
+.json-panel:focus-within .json-content {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .json-panel { right: 8px; left: 8px; width: auto; }
+  .json-panel .json-handle { left: 8px; top: -48px; transform: rotate(-90deg); }
+}
+
+.pdf-export-root {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 297mm;
+  background: #fff;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.pdf-page {
+  width: 297mm;
+  height: 210mm;
+  box-sizing: border-box;
+  padding: 8mm;
+  background: #fff;
+  page-break-after: always;
+  font-size: 90%;
+  overflow: hidden;
+}
+
+.pdf-page:last-child {
+  page-break-after: auto;
+}
+
+.pdf-page-header {
+  margin-bottom: 4mm;
+}
+
+.pdf-page-header #header {
+  width: 100%;
+  margin: 0 0 8px;
+}
+
+.pdf-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.pdf-page .pagina {
+  margin-bottom: 0;
+}
+
+.pdf-page .grid-item textarea,
+.pdf-page textarea {
+  font-size: 0.9em;
+  line-height: 1.2;
+  padding: 4px;
+  min-height: 52px;
+}
+
+.print-page-header {
+  display: none;
+}
+
+@media print {
+  .print-page-header {
+    display: block;
+    break-before: page;
+    page-break-before: always;
+    margin-bottom: 8px;
+  }
+
+  .print-page-header .print-header-main {
+    width: 100%;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .print-page-header .print-header-main img {
+    max-height: 70px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .print-page-header .print-header-main h1 {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+    flex: 1;
+  }
+}
