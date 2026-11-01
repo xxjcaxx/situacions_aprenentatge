@@ -1,0 +1,26 @@
+{
+  "name": "stagehand",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node aules.js",
+    "situacions": "node situacions.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.4.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@browserbasehq/stagehand": "^4.3.0",
+    "zod": "~4.4.3"
+  }
+}
