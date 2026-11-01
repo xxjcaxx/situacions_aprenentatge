@@ -28,6 +28,8 @@ const COLORS = {
   softBorder: "BFBFBF",
 };
 
+console.log("COLORS:", COLORS);
+
 const FONT = "Arial";
 const SYMBOL_FONT = "Segoe UI Symbol";
 
@@ -383,7 +385,7 @@ const buildPage1 = ({ values, months }) => {
       ),
     }),
     new TableRow({
-      cantSplit: true,
+      cantSplit: true, 
       children: months.map((selected) =>
         cell([monthBoxesTable(selected)], {
           verticalAlign: VerticalAlign.CENTER,
