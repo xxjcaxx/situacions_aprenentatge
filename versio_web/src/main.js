@@ -1,3 +1,5 @@
+import { exportFormToDocx } from "./docx-export.js";
+
 document.addEventListener("DOMContentLoaded", function () {
 
   const ajustarTextarea = (textarea, extraPx = 0) => {
@@ -170,17 +172,22 @@ document.addEventListener("DOMContentLoaded", function () {
     ajustarTodasTextareas();
   });
 
-  document.querySelector('#imprimir').addEventListener('click', () => {
-    aplicarTextoPequenoParaImpresion();
-    insertarCabecerasPorAlturaDePagina();
+  document.querySelector('#imprimir').addEventListener('click', async (event) => {
+    const boton = event.currentTarget;
+    const textoOriginal = boton.textContent;
 
-    window.addEventListener('afterprint', limpiarPreparacionImpresion, { once: true });
-    requestAnimationFrame(() => {
-      ajustarTodasTextareas(8);
-      window.print();
-    });
+    boton.disabled = true;
+    boton.textContent = 'Generant...';
 
-    setTimeout(limpiarPreparacionImpresion, 3000);
+    try {
+      await exportFormToDocx();
+    } catch (error) {
+      console.error("Error generant el document Word:", error);
+      alert("No s'ha pogut generar el document Word. Revisa la consola per a més detalls.");
+    } finally {
+      boton.disabled = false;
+      boton.textContent = textoOriginal;
+    }
   });
 
   document.addEventListener('input', function (e) {
