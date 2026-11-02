@@ -4,7 +4,7 @@ LA TEUA TASCA:
 Generar una Situació d'Aprenentatge (SA) completa i coherent a partir de les dades d'entrada i retornar-la DINS d'un únic objecte JSON que compleixi rigorosament l'esquema proporcionat.
 
 ---
-### DADES D'ENTRADA (INPUT)
+### DADES D'ENTRADA (INPUT) 
 
 - **Curs / Nivell:** 6é primària
 - **Àrea / Matèria:** matemàtiques

@@ -182,7 +182,7 @@ Generar una Situació d'Aprenentatge (SA) completa i coherent a partir de les da
 - **Competències clau / específiques prioritàries:** elige segun contexto
 
 ---
-### REGLES DE GENERACIÓ I FORMAT:
+### REGLES DE GENERACIÓ I FORMAT: 
 
 1. **Normativa i Rigor Curricular:** Garanteix que els criteris d'avaluació i els sabers bàsics s'alineen amb la normativa valenciana aplicable al curs i àrea indicats.
 2. **Tractament de claus booleanes/opcionals (CCL1..CCEC4, DUA):**
